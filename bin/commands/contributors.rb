@@ -35,13 +35,23 @@ module Bin
         end
       end
 
-      g.desc 'Create a list of all DCO signers'
+      g.desc 'Create a list of all DCO signers.'
       g.command 'dco-signers' do |c|
         c.action do |_global_options, options, _args|
           org = GitHub::Organization.new(options)
           signers = org.commits(options).dco_signers
           signers.sort_for_display.each do |signer|
             puts signer.to_s
+          end
+        end
+      end
+
+      g.desc 'Find contributions from accounts that are unclassified (ghosts) from GitHub.'
+      g.command 'unknown' do |c|
+        c.action do |_global_options, options, _args|
+          org = GitHub::Organization.new(options)
+          org.pull_requests(options).unknown.each do |pr|
+            puts pr
           end
         end
       end

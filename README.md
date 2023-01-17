@@ -17,6 +17,7 @@
     - [Issues](#issues)
     - [Member Bios](#member-bios)
     - [DCO Signers](#dco-signers)
+    - [Unknowns](#unknowns)
 - [Contributing](#contributing)
 - [Code of Conduct](#code-of-conduct)
 - [Security](#security)
@@ -301,6 +302,14 @@ Shows name and email address from all contributors that have signed a developer 
 
 ```
 ./bin/project contributors dco-signers --from=2022-01-01 --to=2022-01-31 --org=opensearch-project --repo=OpenSearch
+```
+
+#### Unknowns
+
+Shows pull requests by unknown accounts, usually deleted GitHub accounts if the members and external files are up-to-date.
+
+```
+./bin/project contributors unknown
 ```
 
 ## Contributing
